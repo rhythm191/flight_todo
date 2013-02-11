@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Flight todos</title>
+	<link rel="stylesheet" type="text/css" href="components/bootstrap/docs/assets/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="app/css/main.css">
+</head>
+<body>
+	 <div id="todoapp">
+
+    <header>
+      <h1>Todos</h1>
+     	<input id="new-todo" type="text" placeholder="What needs to be done?">
+    </header>
+
+    <section id="main">
+    	<div class="form-inline">
+	      <input id="toggle-all" type="checkbox">
+	      <label for="toggle-all">Mark all as complete</label>
+	    </div>
+
+      <ul id="todo-list"></ul>
+    </section>
+
+    <footer>
+      <a id="clear-completed">Clear completed</a>
+      <div id="todo-count"></div>
+    </footer>
+
+  </div>
+
+  <div id="instructions">
+    Double-click to edit a todo.
+  </div>
+
+  <div id="credits">
+    Created by <a href="https://twitter.com/maneater_rhythm">maneater_rhythm</a>.
+  </div>
+
+
+  <!-- JavaScript -->
+  <script src="components/jquery/jquery.js"></script>
+  <script src="components/es5-shim/es5-shim.js"></script>
+  <script src="components/es5-shim/es5-sham.js"></script>
+  <script data-main="app/main.js" src="components/requirejs/require.js"></script>
+
+
+  <!-- Templates -->
+
+  <script id="item-template" type="text/template" >
+    {{#items}}
+    	<li>
+		    <div class="view form-inline">
+		      <input class="toggle" type="checkbox" {{#done}}checked="checked"{{/done}} />
+		      <label>{{label}}</label>
+		      <a class="destroy">&times;</a>
+		    </div>
+		    <div class="editor hide">
+		    	<input class="edit hide" type="text" value="{{label}}" />
+		    </div>
+		  </li>
+    {{/items}}
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+	"name" : "Todo list",
+	"version" : "1.0.0",
+	"dependencies" : {
+		"flight": null,
+		"mustache": null,
+		"bootstrap": null,
+		"requirejs": null
+	}
+}
