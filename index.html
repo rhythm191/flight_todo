@@ -3,40 +3,57 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Flight todos</title>
-	<link rel="stylesheet" type="text/css" href="components/bootstrap/docs/assets/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="components/bootstrap/docs/assets/css/bootstrap-responsive.css">
+  <link rel="stylesheet" type="text/css" href="components/bootstrap/docs/assets/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="app/css/main.css">
 </head>
 <body>
-	 <div id="todoapp">
+  <div id="todoapp" class="container-fluid">
+    <div class="row-fluid">
+      <div class="span5 offset3">
 
-    <header>
-      <h1>Todos</h1>
-     	<input id="new-todo" type="text" placeholder="What needs to be done?">
-    </header>
+        <header>
+          <h1 class="text-center">Todos</h1>
+         	<input id="new-todo" class="span12" type="text" placeholder="What needs to be done?">
+        </header>
 
-    <section id="main">
-    	<div class="form-inline">
-	      <input id="toggle-all" type="checkbox">
-	      <label for="toggle-all">Mark all as complete</label>
-	    </div>
+        <section id="main">
 
-      <ul id="todo-list"></ul>
-    </section>
+          <!--
+        	<div class="form-inline">
+    	      <input id="toggle-all" type="checkbox">
+    	      <label for="toggle-all">Mark all as complete</label>
+    	    </div>
+        -->
 
-    <footer>
-      <a id="clear-completed">Clear completed</a>
-      <div id="todo-count"></div>
-    </footer>
+          <div id="todoapp" class="container">
+            <div id="todo-list" class="row-fluid"></div>
+          </div>
+        </section>
 
+        <!--
+        <footer>
+          <a id="clear-completed">Clear completed</a>
+          <div id="todo-count"></div>
+        </footer>
+      -->
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span5 offset3">
+
+        <div id="instructions" class="text-center">
+          Double-click to edit a todo.
+        </div>
+
+        <div id="credits" class="text-center">
+          Created by <a href="https://twitter.com/maneater_rhythm">maneater_rhythm</a>.
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div id="instructions">
-    Double-click to edit a todo.
-  </div>
-
-  <div id="credits">
-    Created by <a href="https://twitter.com/maneater_rhythm">maneater_rhythm</a>.
-  </div>
+  
 
 
   <!-- JavaScript -->
@@ -50,16 +67,18 @@
 
   <script id="item-template" type="text/template" >
     {{#items}}
-    	<li>
-		    <div class="view form-inline">
+      <div class="item" id="{{id}}">
+		    <div class="view form-inline span5">
 		      <input class="toggle" type="checkbox" {{#done}}checked="checked"{{/done}} />
-		      <label>{{label}}</label>
-		      <a class="destroy">&times;</a>
+		      <label class="{{#done}}through{{/done}}">{{label}}</label>
 		    </div>
+        <div class="command span2">
+          <a class="destroy btn btn-mini btn-danger">&times;</a>
+        </div>
 		    <div class="editor hide">
-		    	<input class="edit hide" type="text" value="{{label}}" />
+		    	<input class="edit span8" type="text" value="{{label}}" />
 		    </div>
-		  </li>
+      </div>
     {{/items}}
   </script>
 </body>

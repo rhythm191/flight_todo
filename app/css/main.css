@@ -1,13 +1,25 @@
+
+
 #todo-list {
 	list-style-type: none;
 }
 
 
-
-#todo-list li label {
-
+#todo-list .item {
+	height:30px;
+}
+#todo-list .item .view {
+	height:30px;
 }
 
+#todo-list .item label {
+	font-size: 20px;
+	margin-bottom: 0px;
+}
+
+#todo-list .item .through {
+	text-decoration: line-through;
+}
 input[type=checkbox] {
 	margin-bottom: 7px;
 }

@@ -12,11 +12,16 @@ define(
 
 		function newTodo() {
 
+			this.defaultAttrs({
+				id: 0
+			});
+
 			this.createOnEnter = function(e) {
 				if (e.keyCode != 13) return;
       	if (!this.$node.val()) return;
 
       	this.trigger('createNewTodo', {
+      		id: this.attr.id++,
       		label: this.$node.val(),
       		done: false
       	});
@@ -24,7 +29,7 @@ define(
 			}
 
 			this.addOne = function(ev, todo) {
-				this.trigger(document, 'addOne', todo)
+				this.trigger(document, 'dataAddTodo', todo)
 			}
 
 			this.after('initialize', function() {
